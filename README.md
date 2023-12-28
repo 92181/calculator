@@ -4,4 +4,4 @@ A lightweight calculator template, It gives a good illustration on how a calcula
 
 # Usage
 
-It can perform fairly complex calculations, such as 5!*4^2 and 5!%4^2. You can try it out directly in your browser although locally. The calculator logic is packaged in the same file as the demo. You can extract the logic and build around it if you wish to do so.
+It can perform fairly complex calculations, such as π+5π2 and 5!%4^2. You can try it out directly in your browser although locally. The calculator logic is packaged in the same file as the demo. You can extract the logic and build around it if you wish to do so.
