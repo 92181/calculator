@@ -28,7 +28,7 @@ function P0E()
       case'π':s();y();C.push(p);break;
       case'(':s();y();o+=4;break;
       case')':s();o-=4;break;
-      case'e':n+=z*2;i+=1;break;
+      case'e':n+=z;i+=1;n+=J[i];break;
       default:n+=z;
     }
     
