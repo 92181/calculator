@@ -17,6 +17,7 @@
     i=['A','C','%','/','π','7','8','9','*','e','4','5','6','-','!','1','2','3','+','^','S','0','.','=','√'];
     z=0;while(z<25){D.insertAdjacentHTML('beforeend','<c0>'+i[z]+'</c0>');z+=1;if(z%5==0){D.insertAdjacentHTML('beforeend','<p3>')}}
 
+    function CRU(D){let V=P.value;P.value=V.substring(0,P.selectionStart)+D+V.substring(P.selectionEnd,V.length)}
     Ci=document.querySelectorAll('c0');z=2;while(z<20){let u=i[z];Ci[z].onclick=function(){CRU(u)};z+=1}Ci[0].onclick=function(){P.value=''};Ci[1].onclick=function(){let H=P.selectionStart;let J=P.selectionEnd;if(H==J){H-=1}let V=P.value;P.value=V.substring(0,H)+V.substring(J,V.length)};
     Ci[21].onclick=function(){CRU('0')};Ci[22].onclick=function(){CRU('.')};Ci[24].onclick=function(){CRU('√')};Ci[23].onclick=function(){P0E()};Ci[8].innerText='x';
 
@@ -31,7 +32,7 @@
 
       k=function(p,u){s();let x=G.length;while(x){d=C.length-2;let PrevP=G[x-1];if(PrevP>=p){H[x-1]();G.pop();H.pop()}else{H.push(u);G.push(p);return}x-=1}if(!G.length){H.push(u);G.push(p)}}
 
-      let o=0,y=function(){if(H.length<C.length){k(o+1,P2)}};function CRU(D){let V=P.value;P.value=V.substring(0,P.selectionStart)+D+V.substring(P.selectionEnd,V.length)}
+      let o=0,y=function(){if(H.length<C.length){k(o+1,P2)}};
 
       i=0;while(i<J.length)
       {
@@ -76,4 +77,3 @@
 
   </script>
 </body>
-
