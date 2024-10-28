@@ -1,25 +1,41 @@
-<!doctype html><html><head><script src="logic.js"></script><style>body,html{background-color:#000;color:#fff;font-family:sans-serif;}c0{display:inline-flex;width:53px;height:53px;border:transparent 1px solid;justify-content:center;align-items:center;border-radius:10px;font-size:24px;cursor:pointer;user-select:none;}c0:hover,c0:focus-visible{background-color:#131313;outline:none;}input,p1,p3{display:block;}input{background-color:#000;outline:0;color:#fff;border:0;font-size:24px;}p1{font-size:20px;}</style></head><body><input type="text"/><p0></p0><p1></p1><script>
-P=document.querySelector('input'),L=document.querySelector('p1'),D=document.querySelector('p0');
+<!doctype html><html><head><script src="logic.js"></script><style>@font-face{font-family:'f';src:url(Poppins.woff2)}body,html{background-color:#000;color:#fff;font-family:"f";}c0{display:inline-flex;border:0.1rem solid #6f6f6f;width:53px;height:53px;justify-content:center;align-items:center;border-radius:50%;margin:0.4rem;font-size:24px;cursor:pointer;user-select:none;}c0:hover,c0:focus-visible{background-color:#6f6f6f;outline:none;}input,p1,p3{display:inline-block;}input{text-align:end;width:16.1rem;margin:0 0.4rem 2.4rem 0.4rem;background-color:#000;outline:0;color:#fff;border:0;font-size:30px;}p1{font-size:20px;}</style></head>
+<body>
+    <p3 style="border: 0.1rem solid #6f6f6f;border-radius: 2rem;padding: 0.8rem;position: absolute;">
+        <p4 style="display: block; user-select: none;text-align: end;margin: 0.5rem 0.5rem;">History</p4>
+        <input type="text"/>
+        <p0 style="display: grid;grid-template-columns: auto auto auto auto; width: fit-content;"></p0>
+    </p3>
+<script>
+P=document.querySelector('input'),A=document.querySelector('p3'),L=document.querySelector('p4'),D=document.querySelector('p0');
 
-i=['A','C','%','/','π','7','8','9','*','e','4','5','6','-','!','1','2','3','+','^','S','0','.','=','√'];
-while(z<25){D.insertAdjacentHTML('beforeend','<c0>'+i[z]+'</c0>');z+=1;if(z%5==0){D.insertAdjacentHTML('beforeend','<p3>')}}
+i=['A','C','%','÷','7','8','9','×','4','5','6','-','1','2','3','+','S','0','.','='];
+while(z<20){D.insertAdjacentHTML('beforeend','<c0>'+i[z]+'</c0>');z+=1;}
 
-function CRU(D){let V=P.value;P.value=V.substring(0,P.selectionStart)+D+V.substring(P.selectionEnd,V.length)}
-Ci=document.querySelectorAll('c0');z=2;while(z<20){let u=i[z];Ci[z].onclick=function(){CRU(u)};z+=1}Ci[0].onclick=function(){P.value=''};Ci[1].onclick=function(){let H=P.selectionStart;let J=P.selectionEnd;if(H==J){H-=1}let V=P.value;P.value=V.substring(0,H)+V.substring(J,V.length)};
-Ci[21].onclick=function(){CRU('0')};Ci[22].onclick=function(){CRU('.')};Ci[24].onclick=function(){CRU('√')};Ci[23].onclick=function(){P0E()};Ci[8].innerText='x';
+function CRU(D){let V=P.value,g=P.selectionStart+1;P.value=V.substring(0,P.selectionStart)+D+V.substring(P.selectionEnd,V.length);P.selectionStart=P.selectionEnd=g;}
 
-P.onkeydown=function(e){let s=e.key;switch(s){case'Enter':P0E();break;case'p':e.preventDefault();CRU('π');break;case'w':e.preventDefault();CRU('√');break;case'd':e.preventDefault();CRU('^2');break;case'l':e.preventDefault();CRU('l');break;case'o':e.preventDefault();CRU('l10');break}};
+Ci=document.querySelectorAll('c0');z=2;while(z<20){let u=i[z];Ci[z].onclick=function(){CRU(u);P.focus()};z+=1}Ci[0].onclick=function(){P.value='';P.focus()};Ci[1].onclick=function(){P.focus();let H=P.selectionStart;let J=P.selectionEnd;if(H==J){H-=1}let V=P.value;P.value=V.substring(0,H)+V.substring(J,V.length)};
 
-P.value='21.001+0.2';
-P0E();
-P.value='4.52/0.01';
-P0E();
-P.value='4.52*99';
-P0E();
-P.value='5!%4^2';
-P0E();
-P.value='π+5π2';
-P0E();
-P.value='8(8)';
-P0E();
+Ci[18].onclick=function(){CRU('.');P.focus()};Ci[19].onclick=rss;
+
+P.onkeydown=function(e){let s=e.key;switch(s){case'Enter':rss();break;case'/':CRU('÷');e.preventDefault();break;case'*':CRU('×');e.preventDefault();break;case'p':e.preventDefault();CRU('π');break;case'w':e.preventDefault();CRU('√');break;case'd':e.preventDefault();CRU('^2');break;case'l':e.preventDefault();CRU('l');break;case'o':e.preventDefault();CRU('l10');break}};
+
+// Return The Result To The Interface;
+function rss()
+{
+    L.textContent=P.value;let i=res(P.value);if(Number.isInteger(i)){P.value=i}else{P.value=parseFloat(i.toFixed(8))};P.focus();
+};
+
+// Detect When To Drag Window And Drag It;
+A.onpointerdown=function(e)
+{
+    let qu=A.getBoundingClientRect(),qy=e.clientY-qu.top,qx=e.clientX-qu.left;
+
+    if(e.clientY-qu.top<50)
+    {
+        window.onpointermove=function(e){A.style.top=e.clientY-qy+"px";A.style.left=e.clientX-qx+"px";};window.onpointerup=function(){window.onpointermove=''};
+    };
+};
+
+// Put Start Values Into Input And History;
+L.textContent=P.value="213×62÷8";rss();
 </script></body>
