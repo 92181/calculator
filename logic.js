@@ -3,9 +3,9 @@ let p=Math.PI,J,C,G,H,O,z=0;
 let P0=function(){C[d]+=C[d+1];C.pop()},P1=function(){C[d]-=C[d+1];C.pop()},P2=function(){C[d]*=C[d+1];C.pop()},P3=function(){C[d]/=C[d+1];C.pop()},
 P4=function(){C[d]=C[d]**C[d+1];C.pop()},P5=function(){C[d]=C[d]**(1/C[d+1]);C.pop()},P7=function(){let O=1;for(var x=1;x<=C[d+1];x++){O*=x}C[d+1]=O};
 
-function P0E()
+function res(J)
 {
-  J=P.value;C=[];G=[];H=[];f=[];let z;
+  C=[];G=[];H=[];f=[];let z;
 
   let n='';let s=function(){if(n.length){C.push(parseFloat(n));n=''}};
 
@@ -20,7 +20,9 @@ function P0E()
       case'+':k(o,P0);break;
       case'-':if(J[i-1]!='-'&&J[i-1]!='('&&i!=0){k(o+0,P1)}else{n+=z}break;
       case'*':k(o+1,P2);break;
+      case'×':k(o+1,P2);break;
       case'/':k(o+1,P3);break;
+      case'÷':k(o+1,P3);break;
       case'^':k(o+2,P4);break;
       case'√':k(o+2,P5);break;
       case'!':k(o+3,P7);break;
@@ -36,5 +38,5 @@ function P0E()
   }
   
   s();if(H.length<C.length-1){k(o+1,P2)}x=H.length;while(x){d=C.length-2;H[x-1]();H.pop();x-=1}
-  let S=parseFloat(C[0].toPrecision(15));P.value=S;var Y=document.createElement('div');Y.textContent=J+' = '+S;L.append(Y)
-}
+  let S=parseFloat(C[0].toPrecision(15));return S;
+};
