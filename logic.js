@@ -39,30 +39,18 @@ function res(J)
   let S=parseFloat(C[0].toPrecision(15));return S;
 };
 
-// Parse Input As JS Number;
-function prs()
-{
-  let r=parseFloat(z);if(r){a.push(r);z="";};
-};
-
 // Calculator RPN Logic;
-function rpn(e,j)
+function rpn(s)
 {
-  var s=e;//if(s>='0'&&s<='9'){z+=s;};
-  z=j;
-
   switch(s)
   {
-    case'Enter':prs();break;
-    case'+':prs();if(a.length>1){a[a.length-2]+=a[a.length-1];a.pop();};break;
-    case'-':prs();if(a.length>1){a[a.length-2]-=a[a.length-1];a.pop();};break;
-    case'*','×':prs();if(a.length>1){a[a.length-2]*=a[a.length-1];a.pop();};break;
-    case'/','÷':prs();if(a.length>1){a[a.length-2]/=a[a.length-1];a.pop();};break;
+    case'+':if(a.length>1){a[a.length-2]+=a[a.length-1];a.pop();};break;
+    case'-':if(a.length>1){a[a.length-2]-=a[a.length-1];a.pop();};break;
+    case'*':case'×':if(a.length>1){a[a.length-2]*=a[a.length-1];a.pop();};break;
+    case'/':case'÷':if(a.length>1){a[a.length-2]/=a[a.length-1];a.pop();};break;
 
-    case'^':prs();if(a.length>1){a[a.length-2]=Math.pow(2,a[a.length-1]);a.pop();};break;
-    case'!':prs();if(a.length>0){let o=1,x=1;while(x<=a[a.length-1]){o*=x;x+=1;};a[a.length-1]=o;};break;
-    case'%':prs();if(a.length>0){a[a.length-1]/=100;};break;
+    case'^':if(a.length>1){a[a.length-2]=Math.pow(2,a[a.length-1]);a.pop();};break;
+    case'!':if(a.length>0){let o=1,x=1;while(x<=a[a.length-1]){o*=x;x+=1;};a[a.length-1]=o;};break;
+    case'%':if(a.length>0){a[a.length-1]/=100;};break;
   };
-
-  console.log(a);
 };
