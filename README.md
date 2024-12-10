@@ -9,6 +9,8 @@ Various things that it can do are...
 
 It is also fairly light-weight & thus it is easy to embed without any major drawbacks.
 
+<img src="./preview.png">
+
 # Basic Usage
 You can try it out directly in your browser although locally. The calculator logic is packaged in the same file as the demo. You can extract the logic and build around it if you wish to do so.
 The functionality can easily be extended to include more advanced operations such as the usage of cosine and the processing of other vectors.
