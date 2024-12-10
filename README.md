@@ -9,17 +9,17 @@ Various things that it can do are...
 
 It is also fairly light-weight & thus it is easy to embed without any major drawbacks.
 
-<img src="./preview.png">
-
 # Basic Usage
 You can try it out directly in your browser although locally. The calculator logic is packaged in the same file as the demo. You can extract the logic and build around it if you wish to do so.
 The functionality can easily be extended to include more advanced operations such as the usage of cosine and the processing of other vectors.
-
 
 ```javascript
 // Parse String And Return Result Of Given Calculation;
 let i=res(P.value);if(Number.isInteger(i)){P.value=i}else{P.value=parseFloat(i.toFixed(8))};P.focus();
 ```
+
+# Preview Image
+<img src="./preview.png" width="25%">
 
 # License
 This project is part of the public domain, feel free to use it in whatever form you want without any restrictions.
