@@ -4,10 +4,10 @@ It has no dependencies and can be used freely in a web application for example.
 
 Various things that it can do are...
 * Handle floating point inaccuracies and return a high resolution result.
-* Perform complex calculations such as π+5π2 and 5!%4^2.
-* The unminified version is just 1.4 KB large making it capable of being used in virtually any package.
+* Perform complex calculations such as π+5π(2+1.1) and 5!%4^2.
+* The unminified version is just 2 KB large making it capable of being used in virtually any package.
 
-It is also fairly light-weight & thus it is easy to embed without any major drawbacks.
+It is also contains an RPN (Reverse Polish Notation) mode which allows you to calculate things in a more direct and 'faster' way.
 
 # Basic Usage
 You can try it out directly in your browser although locally. The calculator logic is packaged in the same file as the demo. You can extract the logic and build around it if you wish to do so.
