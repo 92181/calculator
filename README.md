@@ -22,4 +22,4 @@ let i=res(P.value);if(Number.isInteger(i)){P.value=i}else{P.value=parseFloat(i.t
 <img src="./preview.png" width="25%">
 
 # License
-This project is part of the public domain, feel free to use it in whatever form you want without any restrictions.
+This project is licensed under the permissive MIT license. Please consider starring the project if you like it.
